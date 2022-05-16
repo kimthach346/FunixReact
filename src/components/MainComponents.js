@@ -34,4 +34,4 @@ class Main extends Component {
     }
 }
 
-export default Main;
+export default Main
