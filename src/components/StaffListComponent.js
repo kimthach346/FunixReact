@@ -48,7 +48,8 @@ class StaffList extends Component {
             return (
                     <div key={staff.id} className={this.state.colNum}>
                         <Card onClick={() => this.onStaffSelect(staff)}>
-                            {staff.name}
+                            <CardImg src={staff.image} alt ={staff.name} />
+                            <CardText className="text-center">{staff.name}</CardText>
                         </Card>
                     </div>
                 )
@@ -56,7 +57,7 @@ class StaffList extends Component {
 
         return (
             <div className="container">
-                <div>
+                {/* <div>
                     <button onClick={() => this.setCol("col-12 mt-2")} 
                     className="btn btn-primary my-2 mr-4">
                         1 Cột
@@ -77,7 +78,7 @@ class StaffList extends Component {
                     className="btn btn-primary my-2 mr-4">
                         6 Cột
                     </button>
-                </div>
+                </div> */}
                 <div className="row">
                     {staffList}
                 </div>
