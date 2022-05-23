@@ -7,7 +7,7 @@ class StaffList extends Component {
         super(props)
         this.state = {
             selectedStaff: null,
-            colNum: "col-12 col-md-6 col-lg-4 mt-2",
+            colNum: "col-6 col-md-4 col-lg-2 mt-2",
         }
     }
 
@@ -39,9 +39,9 @@ class StaffList extends Component {
         }
     }
 
-    setCol(cols) {
-        this.setState({ colNum: cols })
-    }
+    // setCol(cols) {
+    //     this.setState({ colNum: cols })
+    // }
 
     render() {
         const staffList = this.props.staffs.map((staff) => {
@@ -82,10 +82,10 @@ class StaffList extends Component {
                 <div className="row">
                     {staffList}
                 </div>
-                <p>Bấm vào tên nhân viên để xem thông tin</p>
+                {/* <p>Bấm vào tên nhân viên để xem thông tin</p>
                 <div className="row mt-2">
                     {this.renderStaff(this.state.selectedStaff)}
-                </div>
+                </div> */}
             </div>
         )
 }
