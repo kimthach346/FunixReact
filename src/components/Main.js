@@ -15,7 +15,9 @@ function Main() {
     })
     
     const StaffWithId = ({match}) => {
+        return (
         <StaffDetail staff={list.staffs.filter((staff) => staff.id === parseInt(match.params.staffId, 10))[0]} />
+        )
     }
     
     return (

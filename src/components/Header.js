@@ -11,7 +11,7 @@ function Header() {
                 <div className='container'>
                     <NavbarToggler />
                     <NavbarBrand className="mr-auto" href="/">
-                        <img src="assets/images/logo.png" height="30" width="41" 
+                        <img src="/assets/images/logo.png" height="30" width="41" 
                             alt="Rito" />
                         <span>Quản lý nhân viên</span>
                     </NavbarBrand>
