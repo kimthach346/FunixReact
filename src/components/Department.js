@@ -1,26 +1,27 @@
 import React from "react"
-import { Breadcrumb, BreadcrumbItem } from "reactstrap"
+import { Card, Breadcrumb, BreadcrumbItem } from "reactstrap"
 import { Link } from "react-router-dom"
 
 function Department(props) {
-    console.log(props)
-    const departments = props.department.map((dept) => {
+    const department = props.departments.map((dept) => {
         return (
             <div key={dept.id} className="col-12 col-md-6 col-lg-4 p-2">
-                <Breadcrumb>
-                    <BreadcrumbItem><Link to="/staffList">Nhân Viên</Link></BreadcrumbItem>
-                    <BreadcrumbItem active>Phòng Ban</BreadcrumbItem>
-                </Breadcrumb>
-                <h3>{dept.name}</h3>    
-                <p>{dept.numberOfStaff}</p>
+                <Card className="text-center">
+                    <h3>{dept.name}</h3>    
+                    <p>Số lượng nhân viên: {dept.numberOfStaff}</p>
+                </Card>
             </div>
         )
     })
 
     return (
         <div className="container">
+            <Breadcrumb>
+                <BreadcrumbItem><Link to="/staffList">Nhân Viên</Link></BreadcrumbItem>
+                <BreadcrumbItem active>Phòng Ban</BreadcrumbItem>
+            </Breadcrumb>
             <div className="row">
-                {departments}
+                {department}
             </div>
         </div>
     )

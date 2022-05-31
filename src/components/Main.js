@@ -27,7 +27,7 @@ function Main() {
                 <Route exact path="/staffList" component={() => <StaffList staffs={list.staffs} />} />
                 <Route path="/staffList/:staffId" component={StaffWithId} />
                 <Route path="/department" component={() => <Department departments={list.departments} />} /> 
-                <Route path="/salary" component={() => <Salary salary={list.staffs} />} />
+                <Route path="/salary" component={() => <Salary salaries={list.staffs} />} />
                 <Redirect to="/staffList" />
             </Switch>
             <Footer />
