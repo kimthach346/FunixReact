@@ -1,4 +1,6 @@
 import React from "react"
+import { Row, Col, Input, Button } from "reactstrap"
+import { LocalForm } from "react-redux-form"
 import { Link } from "react-router-dom"
 
 function StaffList(props) {
@@ -19,6 +21,19 @@ function StaffList(props) {
     return (
         <div className="container">
             <h3>Nhân Viên</h3>
+            <LocalForm onSubmit={(values) => this.handleSubmit(values)}>
+                <Row className="form-group">
+                    <Col md={10}>
+                        <Input model=".staff" 
+                            placeholder="Search staff..."
+                            className='form-control'                            
+                        />
+                    </Col>
+                    <Col md={2}>
+                        <Button type="submit" color="primary">Find</Button>
+                    </Col>
+                </Row>
+            </LocalForm>
             <hr />
             <div className="row">
                 {staffList}
