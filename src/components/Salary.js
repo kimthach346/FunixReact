@@ -1,5 +1,5 @@
 import React from "react"
-import { Card, Breadcrumb, BreadcrumbItem } from "reactstrap"
+import { Card, Breadcrumb, BreadcrumbItem, CardFooter } from "reactstrap"
 import { Link } from "react-router-dom"
 
 function Salary(props) {
@@ -11,7 +11,9 @@ function Salary(props) {
                     <p>Mã nhân viên: {el.id}</p>
                     <p>Hệ số lương: {el.salaryScale}</p>
                     <p>Số ngày làm thêm: {el.overTime}</p>
-                    <p>Lương: {(el.salaryScale*3000000 + el.overTime*200000).toFixed(0)}</p>
+                    <CardFooter>
+                        Lương: {(el.salaryScale*3000000 + el.overTime*200000).toFixed(0)}
+                    </CardFooter>
                 </Card>
             </div>
         )
