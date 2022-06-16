@@ -9,7 +9,7 @@ import Header from './Header'
 import { Switch, Route, Redirect } from "react-router-dom"
 
 function Main() {
-    const [list, renderStaff] = useState({
+    const [list, addStaff] = useState({
         staffs: STAFFS,
         departments: DEPARTMENTS,
     })
@@ -20,11 +20,19 @@ function Main() {
         )
     }
     
+    // function addStaff(list) {
+    //     const id = list.staffs.length + 1
+    //     const newStaff = {...staff, id}
+    //     staffs: [...list.staffs, newStaff]
+    // }
+
     return (
         <div>
             <Header />
             <Switch>
-                <Route exact path="/staffList" component={() => <StaffList staffs={list.staffs} />} />
+                <Route exact path="/staffList" component={() => <StaffList 
+                        renderNewStaff={addStaff} 
+                        staffs={list.staffs} />} />
                 <Route path="/staffList/:staffId" component={StaffWithId} />
                 <Route path="/department" component={() => <Department departments={list.departments} />} /> 
                 <Route path="/salary" component={() => <Salary salaries={list.staffs} />} />
