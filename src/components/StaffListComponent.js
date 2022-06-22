@@ -178,7 +178,7 @@ function StaffList(props) {
                         </FormGroup>
                     </Form>
                 </ModalBody>
-                <Button type="submit" color='primary' onClick={addStaff}>Add</Button>
+                <Button type="submit" color='primary' >Add</Button>
             </Modal>
             
             <hr />
