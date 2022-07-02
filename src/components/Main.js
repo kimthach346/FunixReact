@@ -6,7 +6,9 @@ import { STAFFS, DEPARTMENTS } from "../shared/staffs"
 import StaffDetail from "./StaffDetail"
 import Footer from './Footer'
 import Header from './Header'
-import { Switch, Route, Redirect } from "react-router-dom"
+import { Switch, Route, Redirect, withRouter } from "react-router-dom"
+import { renderStaff, fetchStaffs } from '../redux/ActionCreators'
+import { connect } from 'react-redux'
 
 // function Main() {
 //     const [list, setStaffList] = useState({
@@ -24,6 +26,17 @@ import { Switch, Route, Redirect } from "react-router-dom"
 //         console.log(list.staffs)
 //     }
 
+const mapStateToProps = state => {
+    return {
+        staffs: state.staffs,
+        departments: state.departments,
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    setStaff: staff => dispatch(renderStaff(staff))
+    fetchStaffs: () => {dispatch(fetchStaffs())}
+}
 class Main extends Component {
     constructor(props) {
         super(props)
@@ -32,6 +45,10 @@ class Main extends Component {
             departments: DEPARTMENTS,
         }
         this.addStaff = this.addStaff.bind(this)
+    }
+
+    componentDidMount() {
+        this.props.fetchStaffs()
     }
 
     addStaff(newStaff) {
@@ -46,7 +63,11 @@ class Main extends Component {
     render() {
         const StaffWithId = ({match}) => {
             return (
-            <StaffDetail staff={this.state.staffs.filter((staff) => staff.id === parseInt(match.params.staffId, 10))[0]} />
+            <StaffDetail staff={this.state.staffs.filter((staff) => staff.id === parseInt(match.params.staffId, 10))[0]} 
+                        setStaff={this.props.renderStaff}
+                        staffsLoading={this.props.staffs.isLoading}
+                        staffsErrMess={this.props.staffs.errMess}
+            />
             )
         }
         
@@ -67,9 +88,7 @@ class Main extends Component {
         )
     }
 }
-export default Main
-
-
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Main))
 
 
 
